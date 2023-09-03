@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "静态文档",
   "main": "index.js",
+  "repository": "git@github.com:aisuandebowen/Hut.git",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
