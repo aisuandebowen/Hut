@@ -2,7 +2,7 @@
  * @Author: cbw
  * @Date: 2023-08-10 21:25:06
  * @LastEditors: cbw
- * @LastEditTime: 2023-09-03 13:07:05
+ * @LastEditTime: 2023-09-03 18:54:06
  * @Description:
  */
 module.exports = {
@@ -18,6 +18,9 @@ module.exports = {
       lang: "zh-CN",
     },
   },
+  plugins: [["vuepress-plugin-code-copy",{
+    color:'#c9c2c2'
+  }]],
   theme: "reco",
   themeConfig: {
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
@@ -26,7 +29,7 @@ module.exports = {
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
     repoLabel: "查看源码",
     // 假如文档不是放在仓库的根目录下：
-    docsDir: 'docs',
+    docsDir: "docs",
     // 假如文档放在一个特定的分支下：
     docsBranch: "master",
     // 默认是 false, 设置为 true 来启用
