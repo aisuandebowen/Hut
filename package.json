@@ -1,0 +1,19 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "description": "静态文档",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.9.9",
+    "vuepress-theme-reco": "^1.6.17"
+  },
+  "dependencies": {
+    "vue-template-compiler": "^2.7.14"
+  }
+}
