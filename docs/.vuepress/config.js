@@ -2,7 +2,7 @@
  * @Author: cbw
  * @Date: 2023-08-10 21:25:06
  * @LastEditors: cbw
- * @LastEditTime: 2023-09-04 20:32:54
+ * @LastEditTime: 2023-09-04 20:44:13
  * @Description:
  */
 module.exports = {
@@ -28,6 +28,7 @@ module.exports = {
   ],
   theme: "reco",
   themeConfig: {
+    logo: "/assets/img/logo.jpg",
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
     repo: "https://github.com/aisuandebowen/Hut",
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
@@ -45,16 +46,16 @@ module.exports = {
     nav: [
       { text: "首页", link: "/" },
       {
-        text: '常用网站',
-        ariaLabel: 'Common Website',
+        text: "常用网站",
+        ariaLabel: "Common Website",
         items: [
           { text: "GitHub", link: "https://github.com" },
           { text: "翻译", link: "https://fanyi.youdao.com/indexLLM.html#/" },
           { text: "MDN", link: "https://developer.mozilla.org/en-US/" },
           { text: "现代JavaScript教程", link: "https://zh.javascript.info/" },
           { text: "简法主页", link: "https://www.jianfast.com/" },
-        ]
-      }
+        ],
+      },
       // {
       //   text: "CSDN",
       //   link: "https://blog.csdn.net/weixin_44173943?spm=1000.2115.3001.5343",
@@ -85,13 +86,13 @@ module.exports = {
         path: "/note/git/git.md",
       },
       {
-        title:"需求开发思考",
+        title: "需求开发思考",
         path: "/note/ponder/ponder.md",
       },
       {
-        title:"其他",
+        title: "其他",
         path: "/note/other/other.md",
-      }
+      },
     ],
   },
 };
