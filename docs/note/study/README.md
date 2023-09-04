@@ -1408,7 +1408,7 @@ console.log(formatDate(d, "YY年MM月"));
 
 ## 原型`[[prototype]]`
 
-![img](https://img-blog.csdnimg.cn/img_convert/53dd4fc03309d79b2f90bf1411412823.png)
+![img](https://img2018.cnblogs.com/blog/850375/201907/850375-20190708151615691-1017611190.png)
 
 ### 含义
 
@@ -1514,7 +1514,7 @@ class User {
 
 本质：子类`prototype`属性设置`[[prototype]]`为父类的`prototype`。
 
-[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-43VhY4ti-1692782820667)(https://zh.javascript.info/article/static-properties-methods/animal-rabbit-static.svg)]
+![继承图](https://zh.javascript.info/article/static-properties-methods/animal-rabbit-static.svg)
 
 注意
 
@@ -1760,7 +1760,7 @@ const promise = new Promise(function(resolve, reject) {
 
 3. 状态变化
 
-   [外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-na2z9YHE-1692782820668)(https://zh.javascript.info/article/promise-basics/promise-resolve-reject.svg)]
+   ![状态变化](https://zh.javascript.info/article/promise-basics/promise-resolve-reject.svg)
 
 4. 执行了`resolve`、`reject`后，不会再执行`resolve`、`reject`，而`executor`的代码依旧会正常执行。
 
@@ -1850,6 +1850,8 @@ async function fn(){
 
 1. `fn().catch(...)`
 2. `fn`内部处理。
+
+
 
 ## 中文转码
 
@@ -2511,7 +2513,7 @@ mode常用值：
 
 ## 生命周期（组合式API）
 
-![](https://img-blog.csdnimg.cn/img_convert/ea6db68e77d7b4b3964c45836a1e85af.png)
+![](https://cn.vuejs.org/assets/lifecycle.16e4c08e.png)
 
 1. `setup`
 
@@ -3296,3 +3298,10 @@ git commit --amend
 4. 网速慢怎么办？await做的如何？
 
 
+# 待做
+
+## JSX
+
+1. 如何引入css
+2. 插槽、事件监听...怎么用的
+3. 为什么this里有data的内容
