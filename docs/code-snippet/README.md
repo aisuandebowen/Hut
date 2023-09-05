@@ -246,8 +246,49 @@ const wm2 = new WaterMark(
   (waterMarkStyle = { left: "150px", top: "150px" })
 );
 ```
+### 防抖节流
+#### 防抖
+持续触发事件，n秒内再次触发某事件，将重新计算时间才执行。因此，只有**最后一次操作能被触发**。
+```javascript
+function debounce(fn, delay = 500) {
+    let timer = null
 
+    return (...args) => {
+        if (timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, args)
+        }, delay)
+    }
+}
+```
 
+#### 节流
+持续触发事件，n秒内再次触发某事件，将等待上一次事件处理函数完成后，才执行。可以把这个理解成游戏中的“技能**冷却时间**”。
+
+```javascript
+function throttle(fn, delay = 1500) {
+    let timer = null // 定时器
+    let pre = +new Date() // 计算开始时间
+
+    return (...args) => {
+        const now = +new Date() // 计算当前时间
+        const remaining = now - pre // 计算剩余时间
+        clearTimeout(timer) // 取消先前调用的setTimeout
+        if(remaining > delay) {
+            // 超过冷却时间，立即执行
+            fn.apply(this, args)
+            pre = +new Date() // 更新开始时间
+        }else {
+            // 未超过冷却时间，禁止执行。同时保证最后一次调用，仍然可以执行。
+            timer = setTimeout(() => {
+                fn.apply(this, args)
+            }, delay)
+        }
+    }
+}
+```
 
 ## Vue
 
