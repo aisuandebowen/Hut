@@ -390,8 +390,8 @@ git show <tag-name>
    - `git reset --hard`
 
      本地仓、暂存区、工作区都回滚到指定版本。
+   ![图片](https://github.com/aisuandebowen/Hut/assets/58322181/5606c9aa-3ee9-4a5f-93d7-a68c71ede7b4)
 
-   ![reset图解](https://img-blog.csdnimg.cn/15aef5b21c594dad9d0248d88d0cef13.png#pic_center)
 
 ### 修改commit message
 
