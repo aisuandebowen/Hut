@@ -1054,7 +1054,8 @@ console.log(formatDate(d, "YY年MM月"));
 
 ## 原型`[[prototype]]`
 
-![img](https://img2018.cnblogs.com/blog/850375/201907/850375-20190708151615691-1017611190.png)
+![图片](https://github.com/aisuandebowen/Hut/assets/58322181/16507d31-c3a1-4d74-8fc4-8263f3026a93)
+
 
 ### 含义
 
