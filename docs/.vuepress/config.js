@@ -51,7 +51,7 @@ module.exports = {
         items: [
           { text: "GitHub", link: "https://github.com" },
           { text: "翻译", link: "https://fanyi.youdao.com/indexLLM.html#/" },
-          { text: "MDN", link: "https://developer.mozilla.org/en-US/" },
+          { text: "MDN", link: "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference" },
           { text: "现代JavaScript教程", link: "https://zh.javascript.info/" },
           { text: "简法主页", link: "https://www.jianfast.com/" },
         ],
