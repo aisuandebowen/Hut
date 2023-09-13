@@ -429,3 +429,15 @@ git diff <file>
 
 1. 记录 commit_id
 2. `git cherry-pick <commit_id>`
+
+### 远程强制覆盖本地
+```
+git fetch -all
+git reset --hard origin/<branch>
+git pull
+```
+
+一键copy
+```
+git fetch --all &&  git reset --hard origin/<branch> && git pull
+```
