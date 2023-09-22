@@ -107,6 +107,29 @@ ref支持访问模板、v-for、函数、组件
 
 `v-model` 在组件上都是使用 `modelValue` 作为 prop，并以 `update:modelValue` 作为对应的事件。
 
+小技巧：父子组件可以使用`computed`做`v-model`。
+```
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+
+const value = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
+</script>
+
+<template>
+  <input v-model="value" />
+</template>
+```
+
 ## 禁用 Attributes 继承
 
 `inheritAttrs: false`。
