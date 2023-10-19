@@ -105,10 +105,14 @@ setTimeout(() => {
    打包成单独的js文件存储在static/js文件夹里面
 
 3. 生命周期顺序
+   + 引入时：
 
    **异步组件**：父组件`beforeCreate`、`created`、`beforeMount`、`mounted` --->挨个子组件`beforeCreate`、`created`、`beforeMount`、`mounted`
 
    **同步组件**：父组件`beforeCreate`、`created`、`beforeMount` --->挨个子组件`beforeCreate`、`created`、`beforeMount`--->挨个子组件`mounted`---> 父组件`mounted`
+
+   + remove时
+   异步组件和同步组件一致，父组件beforeDestroy ---> 子组件beforeDestroy、destroyed ---> 父组件destroyed
 
 ## 组件
 
