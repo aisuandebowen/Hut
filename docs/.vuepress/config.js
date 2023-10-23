@@ -2,7 +2,7 @@
  * @Author: cbw
  * @Date: 2023-08-10 21:25:06
  * @LastEditors: cbw
- * @LastEditTime: 2023-09-04 20:44:13
+ * @LastEditTime: 2023-10-23 19:16:18
  * @Description:
  */
 module.exports = {
@@ -51,7 +51,10 @@ module.exports = {
         items: [
           { text: "GitHub", link: "https://github.com" },
           { text: "翻译", link: "https://fanyi.youdao.com/indexLLM.html#/" },
-          { text: "MDN", link: "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference" },
+          {
+            text: "MDN",
+            link: "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference",
+          },
           { text: "现代JavaScript教程", link: "https://zh.javascript.info/" },
           { text: "简法主页", link: "https://www.jianfast.com/" },
         ],
@@ -64,10 +67,12 @@ module.exports = {
     sidebar: [
       {
         title: "导语",
+        collapsable: false,
         path: "/",
       },
       {
         title: "代码片段",
+        collapsable: false,
         path: "/code-snippet/",
       },
       {
@@ -83,16 +88,21 @@ module.exports = {
       },
       {
         title: "Git",
-        path: "/note/git/git.md",
+        collapsable: true,
+        children: [
+          { title: "常见问题", path: "/note/git/QA.md" },
+          { title: "基础知识", path: "/note/git/git.md" },
+        ],
       },
       {
-        title: "需求开发思考",
-        path: "/note/ponder/ponder.md",
-      },
-      {
-        title: "其他",
-        path: "/note/other/other.md",
-      },
+        title:"Other",
+        collapsable: true,
+        children: [
+          { title: "其他", path: "/note/other/other.md" },
+          { title: "正则", path: "/note/regular/regular.md" },
+          { title: "需求开发思考", path: "/note/ponder/ponder.md" },
+        ],
+      }
     ],
   },
 };
