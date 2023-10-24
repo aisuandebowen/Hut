@@ -78,3 +78,9 @@ git pull
 ```
 git fetch --all &&  git reset --hard origin/<branch> && git pull
 ```
+
+### 查看commit id属于哪个分支
+```
+git branch --contains <commit id>
+git branch --contains <commit id> -r // 加远程
+```
