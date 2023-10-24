@@ -81,6 +81,11 @@ git status
    ```nginx
    git log --pretty=oneline
    ```
+3. 
+
+   ```nginx
+   git log --graph
+   ```
 
 #### 命令日志
 
