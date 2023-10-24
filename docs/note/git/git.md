@@ -273,6 +273,62 @@ git branch -d <name>
 ```nginx
 git branch -D <name>
 ```
+### 变基rebase
+
+#### 命令
+
+```
+git rebase
+```
+
+#### 原理
+
+场景：现有分支A、B。当前分支A，准备`rebase B`。
+
+内部过程：
+
+1. 取消A分支的所有`commit`；
+2. 将过程1的操作临时保存成`patch`文件，保存在`.git/rebase`目录下；
+3. 然后，把 `A` 分支更新到最新的 `B` 分支；
+4. 最后，把上面保存的 `patch` 文件应用到 `A` 分支上。
+
+#### 用途
+
+##### 多次提交合并
+
+```
+git rebase HEAD~{n}
+```
+
+##### 分支合并
+
+```
+git rebase master
+```
+
+相比`merge`优点，历史记录更清晰。
+
+#### 注意事项
+
+##### 异常退出`vi`
+
+恢复方法：
+
+```
+git rebase --edit-todo
+```
+
+##### 出现冲突时
+
+1. 解决冲突；
+2. `git add `更新；
+3. `git rebase --continue`继续变基编辑。
+
+##### 终止编辑
+
+```
+git rebase --abort
+```
 
 ### 标签 Tag
 
