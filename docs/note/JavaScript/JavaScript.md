@@ -328,6 +328,7 @@ ws.addEventListener('error', () => {
 
 ## Web Workers
 
+[参考文档](https://github.com/Troland/how-javascript-works/blob/master/worker.md)
 ### 基本使用
 
 1. 检测浏览器是否支持`Web Workers`
