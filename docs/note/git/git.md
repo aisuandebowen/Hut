@@ -187,6 +187,16 @@ git remote add origin git@github.com:aisuandebowen/learngit.git
 git push --force
 ```
 
+##### 合并远程分支
+```
+git pull
+
+git fetch
+```
+问题：fetch和pull的区别
++ git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。 
++ git pull是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
+
 ##### 推送并将本地分支和远程分支关联
 
 ```nginx
