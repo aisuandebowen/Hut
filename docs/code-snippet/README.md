@@ -1,9 +1,6 @@
 ## JavaScript
 
 ### 页签通信
-## JavaScript
-
-### 页签通信
 ```javascript
 export default class TabCommunication {
   /**
