@@ -13,9 +13,10 @@ export function logOut() {
 }
 
 export function login() {
-  const getOldHrefReg = /login\?url=(.*)/;
+  const getOldHrefReg = new RegExp(`${route.LOGIN}\\?url=(.*)`);
   const res = location.href.match(getOldHrefReg);
   const href = res ? res[1] : route.SUCCESS;
+  debugger;
   location.replace(decodeURIComponent(href));
 }
 ```
