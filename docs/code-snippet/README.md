@@ -1,5 +1,25 @@
 ## JavaScript
 
+### 登录登出
+```javascript
+const route = {
+  LOGIN: "/login",
+  SUCCESS: "/success",
+};
+
+export function logOut() {
+  const href = location.href;
+  location.replace(`${route.LOGIN}?url=${href}`);
+}
+
+export function login() {
+  const getOldHrefReg = /login\?url=(.*)/;
+  const res = location.href.match(getOldHrefReg);
+  const href = res ? res[1] : route.SUCCESS;
+  location.replace(decodeURIComponent(href));
+}
+```
+
 ### 页签通信
 ```javascript
 export default class TabCommunication {
