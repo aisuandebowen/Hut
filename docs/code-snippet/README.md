@@ -44,7 +44,7 @@ export default class TabCommunication {
       if (value && this.handleMsgFn) {
         // 发送数据
         this.handleMsgFn.call(this, {
-          key: this.name,
+          key: data.key,
           value: JSON.parse(value),
         });
       }
