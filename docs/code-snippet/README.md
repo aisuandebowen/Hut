@@ -439,4 +439,8 @@ function throttle(fn, delay = 1500) {
 </html>
 ```
 参考文章：[https://juejin.cn/post/7067051410671534116#heading-1](https://juejin.cn/post/7067051410671534116#heading-1)
+
+### JSX
++ [vue2](https://github.com/vuejs/jsx-vue2)
++ [vue3](https://github.com/vuejs/babel-plugin-jsx/blob/main/packages/babel-plugin-jsx/README-zh_CN.md)
 ## Typescript
