@@ -13,6 +13,10 @@ function isString(target) {
   return typeof target === 'string';
 }
 
+function isBoolean(target) {
+  return typeof target === 'boolean';
+}
+
 export default class WS {
   /**
    *
@@ -43,7 +47,10 @@ export default class WS {
   send(data) {
     const strData = isString(data) ? data : JSON.stringify(data);
     if (isFunction(this.options?.beforeSend)) {
-      if (this.options.beforeSend(strData)) {
+      const beforeSendRes = this.options.beforeSend(strData);
+      // 返回值为布尔采用其值，反之默认允许send
+      const flag = isBoolean(beforeSendRes) ? beforeSendRes : true;
+      if (flag) {
         this.ws.send(strData);
         this.options?.sended?.(strData);
       }
