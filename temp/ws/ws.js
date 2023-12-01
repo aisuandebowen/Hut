@@ -19,7 +19,7 @@ function isBoolean(target) {
 
 export default class WS {
   /**
-   *
+   * 构造方法
    * @param {String} url ws链接
    * @param {Object} options 选项
    * @param {Function} options.open
@@ -39,22 +39,18 @@ export default class WS {
   }
 
   close() {
-    this.options?.beforeClose?.();
-    this.ws.close();
-    this.options?.closed?.();
+    const flag = this.checkBeforeMethod('beforeClose', undefined, true);
+    if (flag) {
+      this.ws.close();
+      this.options?.closed?.();
+    }
   }
 
   send(data) {
     const strData = isString(data) ? data : JSON.stringify(data);
-    if (isFunction(this.options?.beforeSend)) {
-      const beforeSendRes = this.options.beforeSend(strData);
-      // 返回值为布尔采用其值，反之默认允许send
-      const flag = isBoolean(beforeSendRes) ? beforeSendRes : true;
-      if (flag) {
-        this.ws.send(strData);
-        this.options?.sended?.(strData);
-      }
-    } else {
+    // 返回值为布尔采用其值，反之默认允许send
+    const flag = this.checkBeforeMethod('beforeSend', data, true);
+    if (flag) {
       this.ws.send(strData);
       this.options?.sended?.(strData);
     }
@@ -72,5 +68,14 @@ export default class WS {
         options?.[eventName]?.(e); // 执行回调
       });
     }
+  }
+
+  checkBeforeMethod(name, data, defaultRes = true) {
+    const method = this.options?.[name];
+    if (isFunction(method)) {
+      const res = method(data);
+      return isBoolean(res) ? res : defaultRes;
+    }
+    return defaultRes;
   }
 }
