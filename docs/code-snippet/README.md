@@ -9,9 +9,21 @@ const Event = {
   ERROR: 'error',
 };
 
+function isFunction(target) {
+  return typeof target === 'function' && typeof target.nodeType !== 'number';
+}
+
+function isString(target) {
+  return typeof target === 'string';
+}
+
+function isBoolean(target) {
+  return typeof target === 'boolean';
+}
+
 export default class WS {
   /**
-   *
+   * 构造方法
    * @param {String} url ws链接
    * @param {Object} options 选项
    * @param {Function} options.open
@@ -37,9 +49,19 @@ export default class WS {
   }
 
   send(data) {
-    this.options?.beforeSend?.(data);
-    this.ws.send(data);
-    this.options?.sended?.(data);
+    const strData = isString(data) ? data : JSON.stringify(data);
+    if (isFunction(this.options?.beforeSend)) {
+      const beforeSendRes = this.options.beforeSend(strData);
+      // 返回值为布尔采用其值，反之默认允许send
+      const flag = isBoolean(beforeSendRes) ? beforeSendRes : true;
+      if (flag) {
+        this.ws.send(strData);
+        this.options?.sended?.(strData);
+      }
+    } else {
+      this.ws.send(strData);
+      this.options?.sended?.(strData);
+    }
   }
 
   init(url, options) {
@@ -56,6 +78,7 @@ export default class WS {
     }
   }
 }
+
 ```
 
 ### 登录登出
