@@ -95,14 +95,24 @@ module.exports = {
         ],
       },
       {
-        title:"Other",
+        title: "Other",
         collapsable: true,
         children: [
           { title: "其他", path: "/note/other/other.md" },
           { title: "正则", path: "/note/regular/regular.md" },
           { title: "需求开发思考", path: "/note/ponder/ponder.md" },
         ],
-      }
+      },
     ],
   },
+  head: [
+    [
+      "link",
+      {
+        href: "https://cdn.jsdelivr.net/npm/@docsearch/css@alpha",
+        rel: "stylesheet",
+      },
+    ],
+    ["script", { src: "https://cdn.jsdelivr.net/npm/@docsearch/js@alpha" }],
+  ],
 };
