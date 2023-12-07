@@ -1,27 +1,42 @@
 ## JavaScript
 
+### 事件监听
+```javascript
+/**
+ * 事件监听
+ * @param {Object} dom
+ * @param {String} type
+ * @param {Function} listener
+ * @param {Object} options
+ * @param {Boolean} useCapture
+ * @returns
+ */
+export function addEventListener(
+  dom,
+  type,
+  listener,
+  options = false,
+  useCapture = false,
+) {
+  if (!isFunction(listener)) {
+    throw new Error(`${listener} is not Function`);
+  }
+
+  dom.addEventListener(type, listener, options, useCapture);
+  return {
+    remove() {
+      dom.removeEventListener(type, listener, options, useCapture);
+    },
+  };
+}
+```
+
 ### WebSocket
 ```javascript
-const Event = {
-  OPEN: 'open',
-  MESSAGE: 'message',
-  CLOSE: 'close',
-  ERROR: 'error',
-};
+import { Event } from '../config';
+import { isString, isFunction, isBoolean } from '../utils/utils';
 
-function isFunction(target) {
-  return typeof target === 'function' && typeof target.nodeType !== 'number';
-}
-
-function isString(target) {
-  return typeof target === 'string';
-}
-
-function isBoolean(target) {
-  return typeof target === 'boolean';
-}
-
-export default class WS {
+export default class BaseWs {
   /**
    * 构造方法
    * @param {String} url ws链接
@@ -43,22 +58,18 @@ export default class WS {
   }
 
   close() {
-    this.options?.beforeClose?.();
-    this.ws.close();
-    this.options?.closed?.();
+    const flag = this.checkBeforeMethod('beforeClose', undefined, true);
+    if (flag) {
+      this.ws.close();
+      this.options?.closed?.();
+    }
   }
 
   send(data) {
     const strData = isString(data) ? data : JSON.stringify(data);
-    if (isFunction(this.options?.beforeSend)) {
-      const beforeSendRes = this.options.beforeSend(strData);
-      // 返回值为布尔采用其值，反之默认允许send
-      const flag = isBoolean(beforeSendRes) ? beforeSendRes : true;
-      if (flag) {
-        this.ws.send(strData);
-        this.options?.sended?.(strData);
-      }
-    } else {
+    // 返回值为布尔采用其值，反之默认允许send
+    const flag = this.checkBeforeMethod('beforeSend', data, true);
+    if (flag) {
       this.ws.send(strData);
       this.options?.sended?.(strData);
     }
@@ -77,8 +88,18 @@ export default class WS {
       });
     }
   }
-}
 
+  checkBeforeMethod(name, data, defaultRes = true) {
+    const method = this.options?.[name];
+    if (isFunction(method)) {
+      const res = method(data);
+      return isBoolean(res) ? res : defaultRes;
+    }
+    return defaultRes;
+  }
+
+  isCreatedWS() {}
+}
 ```
 
 ### 登录登出
@@ -104,12 +125,34 @@ export function login() {
 
 ### 页签通信
 ```javascript
+import { addEventListener } from './utils';
+
+function sendMes(key, value) {
+  const _value = JSON.stringify(value);
+  window.localStorage.setItem(key, _value);
+  window.localStorage.removeItem(key);
+}
+
+/**
+ * 页签通信工具
+ */
 export default class TabCommunication {
+  /**
+   * 给指定key发送消息
+   * @param {String} key 指定loccalStorage
+   * @param {*} value 值
+   */
+  static sendMes(key, value) {
+    if (key) {
+      sendMes(key, value);
+    }
+  }
+
   /**
    * 构造函数
    * @param {Object} options
    * @param {Function} options.handleMsgFn 处理消息的方法
-   * @param {String} options.name 页签名
+   * @param {String} options.name 页签名(localStorage同名)
    */
   constructor({ handleMsgFn, name }) {
     this.handleMsgFn = handleMsgFn;
@@ -121,12 +164,13 @@ export default class TabCommunication {
    * 初始化
    */
   init() {
-    window.addEventListener("storage", (data) => {
+    this.listener = addEventListener(window, 'storage', (data) => {
       const value = data.newValue;
-      if (value && this.handleMsgFn) {
+      const key = data.key;
+      if (value && this.handleMsgFn && key === this.name) {
         // 发送数据
-        this.handleMsgFn.call(this, {
-          key: data.key,
+        this.handleMsgFn({
+          key,
           value: JSON.parse(value),
         });
       }
@@ -134,16 +178,18 @@ export default class TabCommunication {
   }
 
   /**
-   * 发消息
-   * @param {Object} option - data
-   * @param {String} option.key - key
-   * @param {*} option.value -value
+   * 仅给name发消息
+   * @param {Object} value - data
    */
-  static sendMes({ key, value }) {
-    if (key) {
-      window.localStorage.setItem(key, JSON.stringify(value));
-      window.localStorage.removeItem(key);
-    }
+  sendMes(value) {
+    sendMes(this.name, value);
+  }
+
+  /**
+   * 停止监听
+   */
+  clear() {
+    this.listener.remove();
   }
 }
 ```
