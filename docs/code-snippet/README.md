@@ -32,6 +32,7 @@ export function addEventListener(
 ```
 
 ### WebSocket
+[Demo](https://github.com/aisuandebowen/code-snippet/tree/master/WsServer)
 ```javascript
 import { Event } from '../config';
 import { isString, isFunction, isBoolean } from '../utils/utils';
