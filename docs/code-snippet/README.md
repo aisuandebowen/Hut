@@ -570,5 +570,90 @@ function throttle(fn, delay = 1500) {
 
 ### JSX
 + [vue2](https://github.com/vuejs/jsx-vue2)
+
+  简单参考code：
+  ```javascript
+  render() {
+    const { rootOptions } = this;
+    const {
+      placeholder,
+      showSearch,
+      changeOnSelect,
+      disabled,
+      value,
+      filedNames,
+    } = this.$props;
+  
+    const cascaderProps = {
+      props: {
+        options: rootOptions,
+        'load-data': this.loadData,
+        placeholder,
+        'field-names': filedNames,
+        showSearch,
+        'change-on-select': changeOnSelect,
+        disabled,
+        value,
+      },
+      on: {
+        change: this.onChange,
+      },
+    };
+  
+    return <a-cascader {...cascaderProps} />;
+  },
+  ```
 + [vue3](https://github.com/vuejs/babel-plugin-jsx/blob/main/packages/babel-plugin-jsx/README-zh_CN.md)
+
+  ```javascript
+  setup(props, { slots, emit }) {
+  
+    // 此处省略...
+  
+    /** 表格插槽 */
+    const tableSlot = () => {
+      const renderText = (columns) => {
+        return columns.map((item) => {
+          return (
+            <a-table-column key={item.dataIndex} data-index={item.dataIndex}>
+              {{
+                title: () => <p>{item.title}</p>,
+              }}
+            </a-table-column>
+          );
+        });
+      };
+      return (
+        <template>
+          <a-table-column title={t('public.operateNumber')}>
+            {{ cell: ({ rowIndex }) => rowIndex + 1 }}
+          </a-table-column>
+          {renderText(columns.value)}
+        </template>
+      );
+    };
+  
+    /** DOM */
+    return () => {
+      const tableProps = {
+        columns: columns.value,
+        data: tableData.value,
+        draggable: {},
+        pagination: false,
+        'row-selection': rowSelection.value,
+        onChange: (val) => {
+          emit('update:tableData', val);
+        },
+      };
+      return (
+        <div class={'add-table'}>
+          {renderOptions()}
+          <a-table {...tableProps} v-model:selectedKeys={selectedKeys.value}>
+            {{ columns: () => tableSlot() }}
+          </a-table>
+        </div>
+      );
+    };
+  },
+  ```
 ## Typescript
