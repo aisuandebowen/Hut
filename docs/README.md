@@ -9,3 +9,7 @@
 # 导语
 
 向花布示爱，向苹果致敬。
+
+## TO-DO
++ vscode插件 便捷生成code fragment
++ webpack plugin：remove log
