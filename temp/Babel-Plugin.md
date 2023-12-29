@@ -30,10 +30,17 @@ AST就是抽象语法树的缩写，是源代码语法结构的一种抽象表�
   核心包
 
   ```javascript
+  const arrowFunctionPlugin = {
+    visitor: {
+      // 如果是箭头函数，就会进到这里边来，参数是箭头函数的节点路径对象
+      ArrowFunctionExpression(path) {
+        path.node.type = "FunctionDeclaration";
+      },
+    },
+  };
+
   const res = core.transform(sorceCode,{
-    visitor:{
-      // ...
-    }
+    plugins:[],
   }) // 转换源代码
   res.code // 处理后的代码
   ```
