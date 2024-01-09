@@ -83,6 +83,10 @@ module.exports = {
           { title: "TS", path: "/note/TS/TS.md" },
           { title: "Vue2", path: "/note/Vue2/Vue2.md" },
           { title: "Vue3", path: "/note/Vue3/Vue3.md" },
+          {
+            title: "Babel-Plugin",
+            path: "/note/Webpack/Babel/Babel-Plugin.md",
+          },
           { title: "HTML CSS", path: "/note/HTML-CSS/HTML-CSS.md" },
         ],
       },
