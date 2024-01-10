@@ -93,3 +93,8 @@ git fetch --all &&  git reset --hard origin/<branch> && git pull
 git branch --contains <commit id>
 git branch --contains <commit id> -r // 加远程
 ```
+
+### 查找两个分支共同的祖先
+```
+git merge-base branchA branchB
+```
