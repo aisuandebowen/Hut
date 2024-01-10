@@ -656,4 +656,27 @@ function throttle(fn, delay = 1500) {
     };
   },
   ```
-## Typescript
+### vscode配置
+#### User Snippets
+`javascript.json`
+```json
+{
+	"打印（console.log）": {
+		"prefix": "log",
+		"body": [
+			"console.log($1);",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+	"打印并定位": {
+		"prefix": "loc",
+		"body": [
+			"console.log(`log-begin：${Date.now()}`);",
+			"console.log('result：',$0);",
+			"console.log(`log-end：${Date.now()}`);",
+		],
+		"description": "Log output to console"
+	}
+}
+```
