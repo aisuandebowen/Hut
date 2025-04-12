@@ -71,13 +71,13 @@ module.exports = {
         path: "/",
       },
       {
-        title: "代码片段",
+        title: "深度学习&AI",
         collapsable: false,
-        path: "/code-snippet/",
+        children: [{ title: "conda", path: "/note/deepstudy/conda.md" }],
       },
       {
         title: "前端",
-        collapsable: false,
+        collapsable: true,
         children: [
           { title: "JavaScript", path: "/note/JavaScript/JavaScript.md" },
           { title: "TS", path: "/note/TS/TS.md" },
@@ -88,6 +88,7 @@ module.exports = {
             path: "/note/Webpack/Babel/Babel-Plugin.md",
           },
           { title: "HTML CSS", path: "/note/HTML-CSS/HTML-CSS.md" },
+          { title: "代码片段", path: "/code-snippet/" },
         ],
       },
       {
