@@ -39,6 +39,14 @@ conda remove -n name --all
 conda create -n newE --clone oldE
 ```
 
+## 检测conda是否安装成功
+返回true
+```
+python
+import torch
+torch.cuda.is_available()
+```
+
 ## python镜像源
 
 清华
@@ -46,4 +54,3 @@ conda create -n newE --clone oldE
 ```
 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
-

@@ -73,7 +73,10 @@ module.exports = {
       {
         title: "深度学习&AI",
         collapsable: false,
-        children: [{ title: "conda", path: "/note/deepstudy/conda.md" }],
+        children: [
+          { title: "conda", path: "/note/deepstudy/conda.md" },
+          { title: "pytorch", path: "/note/deepstudy/pytorch.md" },
+        ],
       },
       {
         title: "前端",
