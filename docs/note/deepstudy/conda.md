@@ -54,3 +54,10 @@ torch.cuda.is_available()
 ```
 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+
+## jupyter转markdown
+```
+pip install nbconvert
+
+jupyter nbconvert --to markdown test.ipynb
+```
