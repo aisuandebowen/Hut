@@ -76,6 +76,7 @@ module.exports = {
         children: [
           { title: "conda", path: "/note/deepstudy/conda.md" },
           { title: "pytorch", path: "/note/deepstudy/pytorch.md" },
+          { title: "python", path: "/note/deepstudy/pyStu.md" },
         ],
       },
       {
