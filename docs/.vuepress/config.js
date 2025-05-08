@@ -75,8 +75,29 @@ module.exports = {
         collapsable: false,
         children: [
           { title: "conda", path: "/note/deepstudy/conda.md" },
-          { title: "pytorch", path: "/note/deepstudy/pytorch.md" },
           { title: "python", path: "/note/deepstudy/pyStu.md" },
+          { title: "反向传播算法", path: "/note/deepstudy/反向传播算法.md" },
+        ],
+      },
+      {
+        title: "Pytorch",
+        collapsable: true,
+        children: [
+          { title: "碎碎念", path: "/note/pytorch/碎碎念.md" },
+          { title: "1张量模块", path: "/note/pytorch/1张量模块.md" },
+          { title: "2数据模块", path: "/note/pytorch/2数据模块.md" },
+          { title: "3网络模块", path: "/note/pytorch/3网络模块.md" },
+          { title: "4激活函数", path: "/note/pytorch/4激活函数.md" },
+          { title: "5优化器模块", path: "/note/pytorch/5优化器模块.md" },
+          {
+            title: "6训练和测试模块",
+            path: "/note/pytorch/6训练和测试模块.md",
+          },
+          {
+            title: "7模型保存和重载",
+            path: "/note/pytorch/7模型保存和重载.md",
+          },
+          { title: "8可视化模块", path: "/note/pytorch/8可视化模块.md" },
         ],
       },
       {
