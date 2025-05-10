@@ -61,3 +61,8 @@ pip install nbconvert
 
 jupyter nbconvert --to markdown test.ipynb
 ```
+
+## nbconvert改图片路径
+```
+jupyter nbconvert mynotebook.ipynb --to markdown --template=nbconvert_imgPath_template --TemplateExporter.extra_template_basedirs=. --NbConvertApp.output_files_dir="markdown-img/{notebook_name}.assets"
+```
