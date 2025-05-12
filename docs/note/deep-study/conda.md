@@ -66,3 +66,8 @@ jupyter nbconvert --to markdown test.ipynb
 ```
 jupyter nbconvert mynotebook.ipynb --to markdown --template=nbconvert_imgPath_template --TemplateExporter.extra_template_basedirs=. --NbConvertApp.output_files_dir="markdown-img/{notebook_name}.assets"
 ```
+
+## 监控GPU状况
+```bash
+for /L %i in () do @nvidia-smi & timeout /t 1 >nul
+```
