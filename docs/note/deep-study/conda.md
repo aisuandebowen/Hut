@@ -39,11 +39,12 @@ conda remove -n name --all
 conda create -n newE --clone oldE
 ```
 
-## 检测conda是否安装成功
-返回true
+## 检测 conda 是否安装成功
+
+返回 true
+
 ```
 python
 import torch
 torch.cuda.is_available()
 ```
-
