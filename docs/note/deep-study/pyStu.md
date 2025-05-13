@@ -1030,6 +1030,19 @@ excel.head()
 
 ### 5.1 生成数组
 
+
+#### matrix
+用于表示二维矩阵。它是 numpy 模块中的一个类,专门用于线性代数运算.
++ `*`运算符默认是矩阵乘法
++ 内置线性代数方法如 `.T`(转置)、`.I` (求逆)、`.H` (共轭转置)：
+```
+np.matrix([
+    [0,1,0,0],
+    [0,0,1,1],
+    [0,1,0,0],
+    [1,0,1,0],
+], dtype=float)
+```
 #### ones
 
 全是 1 的矩阵
@@ -1325,6 +1338,15 @@ b=[[2,3],[4,5]]
 res = np.dot(a,b)
 print(res)
 ```
+
+连乘：
+```python
+from functools import reduce
+
+matrices = [A, B, C]
+result = reduce(np.dot, matrices)
+```
+
 
 #### 行列式 det
 
