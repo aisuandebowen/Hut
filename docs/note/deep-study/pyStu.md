@@ -128,6 +128,15 @@ print(list)
 
     [6, 5, 4, 3, 2, 1]
 
+##### 列表推导式
+```
+[表达式 for 变量 in 可迭代对象 if 条件]
+```
+例如：
+```python
+[[i, -i] for i in range(A.shape[0])]
+```
+
 ##### 排序 sort
 
 ```python
