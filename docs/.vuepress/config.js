@@ -80,6 +80,10 @@ module.exports = {
           { title: "反向传播算法", path: "/note/deep-study/反向传播算法.md" },
           { title: "循环神经网络", path: "/note/deep-study/循环神经网络.md" },
           { title: "卷积神经网络", path: "/note/deep-study/卷积神经网络.md" },
+          {
+            title: "图卷积神经网络",
+            path: "/note/deep-study/图卷积神经网络.md",
+          },
           { title: "深度学习流程", path: "/note/deep-study/深度学习流程.md" },
         ],
       },
