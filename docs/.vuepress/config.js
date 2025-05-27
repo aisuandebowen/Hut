@@ -71,12 +71,39 @@ module.exports = {
         path: "/",
       },
       {
+        title: "Python",
+        collapsable: true,
+        children: [
+          { title: "一、数据类型", path: "/note/python_doc/一、数据类型.md" },
+          { title: "二、三大语句", path: "/note/python_doc/二、三大语句.md" },
+          {
+            title: "三、函数、类和对象.",
+            path: "/note/python_doc/三、函数、类和对象.md",
+          },
+          {
+            title: "四、文件的读写",
+            path: "/note/python_doc/四、文件的读写.md",
+          },
+          { title: "五、Numpy", path: "/note/python_doc/五、Numpy.md" },
+          { title: "六、Pandas", path: "/note/python_doc/六、Pandas.md" },
+          { title: "七、SciPy", path: "/note/python_doc/七、SciPy.md" },
+          {
+            title: "八、可视化 Matplotlib",
+            path: "/note/python_doc/八、可视化 Matplotlib.md",
+          },
+          {
+            title: "九、机器学习 Scikit-learn",
+            path: "/note/python_doc/九、机器学习 Scikit-learn.md",
+          },
+          { title: "other", path: "/note/python_doc/other.md" },
+        ],
+      },
+      {
         title: "深度学习&AI",
         collapsable: true,
         children: [
           { title: "杂货铺", path: "/note/deep-study/杂货铺.md" },
           { title: "conda", path: "/note/deep-study/conda.md" },
-          { title: "python", path: "/note/deep-study/pyStu.md" },
           { title: "反向传播算法", path: "/note/deep-study/反向传播算法.md" },
           { title: "循环神经网络", path: "/note/deep-study/循环神经网络.md" },
           { title: "卷积神经网络", path: "/note/deep-study/卷积神经网络.md" },
