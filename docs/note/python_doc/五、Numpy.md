@@ -85,9 +85,9 @@ arr = np.arange(10)
 arr
 ```
 
-### np.random.rand()
+### np.random.rand(d0, d1, ..., dn)
 
-生成服从(0, 1]均匀分布的随机数
+生成服从(0, 1]均匀分布的随机数，d0, d1, ..., dn 是你要生成的数组的维度。
 
 ```python
 import numpy as np
@@ -95,6 +95,7 @@ arr = np.random.rand(5)
 
 arr
 ```
+
 
 ### np.random.randn()
 
