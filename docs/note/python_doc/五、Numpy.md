@@ -341,6 +341,8 @@ eig = np.linalg.eig(arr)
 print(f'特征值：{eig[0]},特征向量{eig[1]}')
 ```
 
+注意：`np.linalg.eigvals(W)`只返回特征值，本质上是 np.linalg.eig(W)[0] 的快捷方式。
+
 ### 矩阵的逆 linalg.inv
 
 ### 求解线性方程组 linalg.solve
