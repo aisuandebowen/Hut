@@ -98,3 +98,6 @@ git branch --contains <commit id> -r // 加远程
 ```
 git merge-base branchA branchB
 ```
+### github加公钥
+[教学网站](https://liaoxuefeng.com/books/git/remote/index.html)
+
