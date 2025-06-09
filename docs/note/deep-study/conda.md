@@ -48,3 +48,15 @@ python
 import torch
 torch.cuda.is_available()
 ```
+
+## conda瘦身
+```
+ conda clean -p
+```
+Conda 会删除：
+1. 已被更新或卸载的旧版本包文件。
+2. 未被任何环境使用的孤立包文件。
+
+其他常用清理选项:
++ conda clean -t：清理临时文件（--tarballs）。
++ conda clean -a：清理所有缓存（包括包、索引、临时文件等）。
