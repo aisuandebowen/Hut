@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "git@github.com:aisuandebowen/Hut.git",
   "scripts": {
-    "dev": "export  NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
+    "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
   "author": "",
@@ -15,6 +15,8 @@
     "vuepress-theme-reco": "^1.6.17"
   },
   "dependencies": {
+    "markdown-it": "^14.1.0",
+    "markdown-it-mathjax3": "^4.3.2",
     "vue-template-compiler": "^2.7.14",
     "vuepress-plugin-code-copy": "^1.0.6"
   }

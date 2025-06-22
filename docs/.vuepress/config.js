@@ -11,6 +11,9 @@ module.exports = {
   description: "Just playing around",
   markdown: {
     lineNumbers: true,
+    extractHeaders: ["h2", "h3", "h4"],
+    externalLinks: { target: "_blank", rel: "nofollow noopener noreferrer" },
+    plugins: ["markdown-it-mathjax3"],
   },
   lastUpdated: true,
   locales: {
@@ -108,6 +111,10 @@ module.exports = {
           { title: "循环神经网络", path: "/note/deep-study/循环神经网络.md" },
           { title: "卷积神经网络", path: "/note/deep-study/卷积神经网络.md" },
           {
+            title: "循环脉冲神经网络",
+            path: "/note/deep-study/脉冲神经网络.md",
+          },
+          {
             title: "图卷积神经网络",
             path: "/note/deep-study/图卷积神经网络.md",
           },
@@ -179,5 +186,6 @@ module.exports = {
       },
     ],
     ["script", { src: "https://cdn.jsdelivr.net/npm/@docsearch/js@alpha" }],
+    ["script", { src: "/js/click.js" }],
   ],
 };
