@@ -1,6 +1,6 @@
-## 常见问题
+# 常见问题
 
-### 版本回退
+## 1 版本回退
 
 1. 查看提交记录
 
@@ -39,13 +39,13 @@
   - hard（直接还原）
     + 工作区：没了
     + 暂存区：没了
-### 修改commit message
+## 2 修改commit message
 
 ```
 git commit --amend
 ```
 
-### 查看修改内容
+## 3 查看修改内容
 
 查看工作区和版本库里面最新版本的区别：
 
@@ -53,7 +53,7 @@ git commit --amend
 git diff <file>
 ```
 
-#### 版本比对
+### 3.1 版本比对
 
 ` git diff [first-branch]...[second-branch] `
 
@@ -71,12 +71,12 @@ git diff <file>
    git diff --name-status
    ```
 
-### 复制修改内容
+## 4 复制修改内容
 
 1. 记录 commit_id
 2. `git cherry-pick <commit_id>`
 
-### 远程强制覆盖本地
+## 5 远程强制覆盖本地
 ```
 git fetch -all
 git reset --hard origin/<branch>
@@ -88,16 +88,31 @@ git pull
 git fetch --all &&  git reset --hard origin/<branch> && git pull
 ```
 
-### 查看commit id属于哪个分支
+## 6 查看commit id属于哪个分支
 ```
 git branch --contains <commit id>
 git branch --contains <commit id> -r // 加远程
 ```
 
-### 查找两个分支共同的祖先
+## 7 查找两个分支共同的祖先
 ```
 git merge-base branchA branchB
 ```
-### github加公钥
+## 8 github加公钥
 [教学网站](https://liaoxuefeng.com/books/git/remote/index.html)
+
+## 9 不再跟踪某文件 git 记录
+
+1. 单个文件
+
+   ```
+   git rm --cached -r .DS_Store
+   ```
+
+2. 多个文件
+
+   ```
+   find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+   ```
+
 
