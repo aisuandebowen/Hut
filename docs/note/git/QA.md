@@ -115,4 +115,18 @@ git merge-base branchA branchB
    find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
    ```
 
+## `.gitignore`常用清单
+1. 某目录下，只跟踪指定后缀文件
+   ```
+   *
+   !*/
+   !*.py
+   !*.ipynb
+   ```
+   ```
+   My_Data/**
+   !My_Data/**/*.py
+   !My_Data/**/*.md
+   !My_Data/**/
+   ```
 
